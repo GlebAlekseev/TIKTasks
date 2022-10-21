@@ -10,7 +10,6 @@ object Calculation {
 
     fun setValueK(value: Int) {
         _valueK.value = value
-        println("setValueK")
 
         // Вычислить n - длина кодовой комбинации
         _valueN.value = getValueNFromK(valueK.value)
@@ -47,7 +46,6 @@ object Calculation {
     }
 
     fun getVerificationMatrix(k: Int,p: Int): Array<IntArray>{
-        println("k=$k p=$p")
         val dmin = 3
         val matrix = Array(k){IntArray(p){0}}
         val minCountOne = dmin-1
@@ -147,7 +145,6 @@ object Calculation {
 
     fun setFullMessageReceive(fullMessage: IntArray, matrixH: Array<IntArray>){
         _fullMessageReceive.value = fullMessage
-
         // Вычислить Синдром
         val syndrome = matrixMultiply(fullMessage,matrixH)
         _syndromeReceive.value = syndrome
@@ -192,5 +189,4 @@ object Calculation {
     private var _syndromeReceive = MutableStateFlow(IntArray(0))
     val syndromeReceive: StateFlow<IntArray>
         get() = _syndromeReceive
-
 }

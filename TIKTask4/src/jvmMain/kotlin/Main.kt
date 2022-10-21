@@ -156,7 +156,7 @@ fun App() {
                     modifier = Modifier
                         .heightIn(0.dp, 200.dp),
                 ) {
-                    MatrixBlock(matrixH.map { it.toTypedArray() }.toTypedArray(), "b", "a")
+                    MatrixBlock(matrixH.map { it.toTypedArray() }.toTypedArray(), "b", "a", syndrome =  syndromeReceive)
                 }
             }
         }
@@ -234,7 +234,7 @@ fun App() {
                                 }, modifier = Modifier
                                     .background(Color.Gray)
                                 )
-                                Text("Позиция ошибки: $badPosition", modifier = Modifier.padding(top = 15.dp))
+                                Text("Позиция ошибки: ${badPosition.let { it + 1 }}", modifier = Modifier.padding(top = 15.dp))
                             }
                         }else{
                             Default(information, verify)
@@ -265,7 +265,6 @@ fun App() {
                         val example = informationPartMessage.joinToString("") + verificationPartMessage.joinToString("")
                         fun countNotMatch(a: String, b: String): Int {
                             var counter = 0
-                            println("a=${a.length} b=${b.length}")
                             for (l in a.indices) {
                                 if (a[l] != b[l]) counter++
                             }

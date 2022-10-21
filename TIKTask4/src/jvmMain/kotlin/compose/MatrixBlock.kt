@@ -14,9 +14,10 @@ import androidx.compose.ui.unit.sp
 
 
 @Composable
-fun <T>MatrixBlock(matrix: Array<Array<T>>, headerSymbolX: String = "x", headerSymbolY: String = "y", isHeader: Boolean = true) {
+fun <T>MatrixBlock(matrix: Array<Array<T>>, headerSymbolX: String = "x", headerSymbolY: String = "y", isHeader: Boolean = true, syndrome: IntArray = IntArray(0)) {
     if (matrix.isEmpty()) return
     val start = if (isHeader) -1 else 0
+    val errorPosition = matrix.indexOfFirst { it.contentEquals(syndrome.toTypedArray()) }
     Row(
         modifier = Modifier
             .background(Color.LightGray),
@@ -38,7 +39,7 @@ fun <T>MatrixBlock(matrix: Array<Array<T>>, headerSymbolX: String = "x", headerS
                                 )
                             )
                             .fillMaxWidth()
-                            .background(Color.White),
+                            .background(if(j != -1 && syndrome.isNotEmpty()  && j == errorPosition) Color.Red else Color.White),
                         horizontalArrangement = Arrangement.Center
                     ) {
                         if (i == -1) {

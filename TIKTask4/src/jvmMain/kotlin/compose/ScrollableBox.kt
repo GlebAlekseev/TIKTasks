@@ -20,7 +20,6 @@ fun ScrollableBox(modifier: Modifier = Modifier, content: @Composable() (() -> U
         val horizontalState = rememberScrollState()
         Box(
             modifier = Modifier
-//                .fillMaxSize()
                 .horizontalScroll(state = horizontalState)
                 .verticalScroll(state = verticalState),
             contentAlignment = Alignment.Center
