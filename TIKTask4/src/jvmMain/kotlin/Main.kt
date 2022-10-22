@@ -13,12 +13,19 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.application
 import compose.MainWrapper
 import compose.MatrixBlock
 import compose.ScrollableBox
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collect
 
+fun main() = application {
+    Window(onCloseRequest = ::exitApplication, title = "Задание 4", resizable = true) {
+        App()
+    }
+}
 
 @Composable
 @Preview
