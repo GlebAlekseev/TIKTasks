@@ -287,7 +287,7 @@ fun App() {
                 .fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text("Сдвинуть циклически полученное сообщение")
+                Text("Циклический сдвиг полученного сообщения")
                 Row{
                     Button({
                         if (!isErrorTFReceiveMessage) {

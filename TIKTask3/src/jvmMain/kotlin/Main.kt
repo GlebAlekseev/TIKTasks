@@ -98,7 +98,7 @@ fun App() {
                 ScrollableBox(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(300.dp)
+                        .height(260.dp)
                 ) {
                     MatrixBlock(matrixC, headerSymbolX = "y", headerSymbolY = "z")
                 }
@@ -117,7 +117,7 @@ fun App() {
                 ScrollableBox(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(300.dp)
+                        .height(260.dp)
                 ) {
                     MatrixBlock(matrixC2)
                 }
